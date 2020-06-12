@@ -3,15 +3,64 @@
 <script src="js.js"></script>
 <link href="CSS.css" type="text/css" rel="stylesheet">
 <link href="tst.css" type="text/css" rel="stylesheet">
+<style>
+
+
+.arrow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 5px solid #06A8FF;
+    border-right: 5px solid #06A8FF;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
+}
+
+
+</style>
 </head>
 <body>
 
-
+<div>
 <div class="abc uk-section-secondary" uk-parallax="background-color: black,grey;viewport: 0.5">
 <h1 class="uk-position-center" >Calculators</h1>
 </div>
+
+<div class="uk-position-relative uk-position-bottom-center arrow">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
 <div class="abc uk-margin-auto-vertical uk-section-default uk-centre">
-	<div class="uk-margin-auto uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true parrlax: 550">
+	<div uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true" class="uk-margin-auto uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid="masonry: true parrlax: 550">
 				<div>
 					<a href="qe.html">
 						<div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
@@ -23,7 +72,7 @@
 					</a>
 				</div>
 
-                    	<div>
+        <div>
 					<a href="calculator.html">
 						<div class="uk-card uk-card-default uk-flex uk-flex-center uk-flex-middle">
 							<div class="uk-card-body">
@@ -64,10 +113,10 @@
 							</div>
 						</div>
 					</a>
-				</div>
-			
-			
+				</div>	
 			</div>
 </div>
+
+
 </body>
 </html>
