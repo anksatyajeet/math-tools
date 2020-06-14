@@ -7,18 +7,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script>
             function add() {
-                var a, b, c, d, e, f;
+                var a, b, c, d, e, f, g;
                 a = Number(document.getElementById("a").value);
 
                 b = Number(document.getElementById("b").value);
+                
+                 g = Number(document.getElementById("g").value);
+                 
                 c = Number(document.getElementById("c").value);
+                
 
-                d = "Rs" + " " + (a * b * c) / 100;
-                f = (a * b * c) / 100;
-                e = "Rs" + " " + (a + f);
+               e = (a * Math.pow((1 + (c / (b * 100))), (b * g)));
+               d = e - a;
 
-                document.getElementById("d").value = d;
-                document.getElementById("e").value = e
+                document.getElementById("d").value ="Rs" + " " +  d.toFixed(2);
+                document.getElementById("e").value ="Rs" + " " + e.toFixed(2)
             }
         </script>
     </head>
@@ -27,7 +30,7 @@
         <div class="column box is-half ">
             <div>   
             <header class="card-header">
-                <p class="card-header-title">Calculate SI and Amount</p>
+                <p class="card-header-title">Calculate  CI and Amount</p>
             </header>
 
            </div>
@@ -37,14 +40,24 @@
                         <a class="is-static button is-rounded">Rs</a>
                     </p>
                     <p class="control">
-                        <input class="is-rounded input is-primary" type="text" id="a" name="a" placeholder="Principal" />
+                        <input class="input is-rounded is-primary" type="text" id="a" name="a" placeholder="Principal" />
                     </p>
 
                     <br />
                 </div>
                 <div class="field has-addons">
                     <p class="control">
-                        <input class="input is-rounded is-primary" type="text" id="b" name="b" placeholder="Time" />
+                        <input class="input is-rounded is-primary" type="text" id="b" name="b" placeholder="Times compoundred per year" />
+                    </p>
+
+                    <p class="control">
+                        <a class="is-static button is-rounded">times compounded per year.</a>
+                    </p>
+                </div>
+                
+                <div class="field has-addons">
+                    <p class="control">
+                        <input class="input is-rounded is-primary" type="text" id="g" name="g" placeholder=" Time (in Years)" />
                     </p>
 
                     <p class="control">
@@ -64,7 +77,7 @@
 
                 <div class="field has-addons">
                     <p class="control">
-                        <a class="is-static button is-rounded">Simple Interest = </a>
+                        <a class="is-static button is-rounded">Compound Interest = </a>
                     </p>
                     <p class="control">
                         <input class="is-static input" type="text" id="d" placeholder="Simple Interest" readonly/>
